@@ -37,12 +37,19 @@
             android:label="@string/app_name"
             android:logo="@mipmap/app_banner_sample_app"
             android:screenOrientation="landscape">
+
+        </activity>
+        <activity android:name=".app.SplashActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
-
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER"/>
             </intent-filter>
         </activity>
+        <activity android:name=".app.LoginActivity"
+            android:exported="true"/>
+        <activity android:name=".app.cards.ChannelsActivity"
+            android:exported="true"/>
         <activity
                 android:name=".app.page.PageAndListRowActivity"
                 android:exported="true"

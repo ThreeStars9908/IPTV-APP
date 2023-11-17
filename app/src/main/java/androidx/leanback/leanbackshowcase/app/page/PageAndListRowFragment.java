@@ -48,6 +48,12 @@ import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.Toast;
 import com.google.gson.Gson;
+import com.studioidan.httpagent.HttpAgent;
+import com.studioidan.httpagent.StringCallback;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 /**
  * Sample {@link BrowseFragment} implementation showcasing the use of {@link PageRow} and
@@ -81,7 +87,7 @@ public class PageAndListRowFragment extends BrowseFragment {
         setHeadersState(HEADERS_ENABLED);
         setHeadersTransitionOnBackEnabled(true);
         setBrandColor(getResources().getColor(R.color.fastlane_background));
-        setTitle("Title goes here");
+        setTitle("Series");
         setOnSearchClickedListener(new View.OnClickListener() {
 
             @Override
@@ -109,21 +115,24 @@ public class PageAndListRowFragment extends BrowseFragment {
     }
 
     private void createRows() {
-        HeaderItem headerItem1 = new HeaderItem(HEADER_ID_1, HEADER_NAME_1);
-        PageRow pageRow1 = new PageRow(headerItem1);
-        mRowsAdapter.add(pageRow1);
-
-        HeaderItem headerItem2 = new HeaderItem(HEADER_ID_2, HEADER_NAME_2);
-        PageRow pageRow2 = new PageRow(headerItem2);
-        mRowsAdapter.add(pageRow2);
-
-        HeaderItem headerItem3 = new HeaderItem(HEADER_ID_3, HEADER_NAME_3);
-        PageRow pageRow3 = new PageRow(headerItem3);
-        mRowsAdapter.add(pageRow3);
-
-        HeaderItem headerItem4 = new HeaderItem(HEADER_ID_4, HEADER_NAME_4);
-        PageRow pageRow4 = new PageRow(headerItem4);
-        mRowsAdapter.add(pageRow4);
+        HttpAgent.get("http://192.168.2.26:5000/api/category/series")
+                .goString(new StringCallback() {
+                    @Override
+                    protected void onDone(boolean success, String stringResults) {
+                        try {
+                            JSONArray object_array = new JSONArray(stringResults);
+                            for (int nI = 0; nI < object_array.length(); nI ++) {
+                                JSONObject obj_movie = object_array.getJSONObject(nI);
+                                String str_category = obj_movie.getString("category");
+                                HeaderItem headerItem = new HeaderItem(nI+1, str_category);
+                                PageRow pageRow1 = new PageRow(headerItem);
+                                mRowsAdapter.add(pageRow1);
+                            }
+                            } catch (JSONException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                });
     }
 
     private static class PageRowFragmentFactory extends BrowseFragment.FragmentFactory {

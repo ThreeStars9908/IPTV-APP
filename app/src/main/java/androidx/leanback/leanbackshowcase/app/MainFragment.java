@@ -22,6 +22,7 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.leanback.app.BrowseSupportFragment;
 import androidx.leanback.leanbackshowcase.R;
 import androidx.leanback.leanbackshowcase.app.cards.CardExampleActivity;
+import androidx.leanback.leanbackshowcase.app.cards.ChannelsActivity;
 import androidx.leanback.leanbackshowcase.app.details.DetailViewExampleActivity;
 import androidx.leanback.leanbackshowcase.app.details.DetailViewExampleWithVideoBackgroundActivity;
 import androidx.leanback.leanbackshowcase.app.dialog.DialogExampleActivity;
@@ -50,6 +51,7 @@ import androidx.leanback.widget.PresenterSelector;
 import androidx.leanback.widget.Row;
 import androidx.leanback.widget.RowPresenter;
 import com.google.gson.Gson;
+import com.marsad.stylishdialogs.StylishAlertDialog;
 
 
 public class MainFragment extends BrowseSupportFragment {
@@ -122,12 +124,12 @@ public class MainFragment extends BrowseSupportFragment {
                     break;
                 case 2: {
                     intent = new Intent(getActivity().getBaseContext(),
-                            GridExampleActivity.class);
+                            ChannelsActivity.class);
                     break;
                 }
                 case 3: {
                     intent = new Intent(getActivity().getBaseContext(),
-                            VideoGridExampleActivity.class);
+                            MusicExampleActivity.class);
                     break;
                 }
                 case 4: {
@@ -142,60 +144,13 @@ public class MainFragment extends BrowseSupportFragment {
                 }
                 case 6: {
                     intent = new Intent(getActivity().getBaseContext(),
-                            VideoExampleActivity.class);
+                            SettingsExampleActivity.class);
+                    startActivity(intent);
                     break;
                 }
                 case 7: {
-                    intent = new Intent(getActivity().getBaseContext(),
-                            VideoExampleWithExoPlayerActivity.class);
+                    exitConfirm();
                     break;
-                }
-                case 8: {
-                    intent = new Intent(getActivity().getBaseContext(),
-                            MusicExampleActivity.class);
-                    break;
-                }
-                case 9: {
-                    // Let's create a new Wizard for a given Movie. The movie can come from any sort
-                    // of data source. To simplify this example we decode it from a JSON source
-                    // which might be loaded from a server in a real world example.
-                    intent = new Intent(getActivity().getBaseContext(),
-                            WizardExampleActivity.class);
-
-                    // Prepare extras which contains the Movie and will be passed to the Activity
-                    // which is started through the Intent/.
-                    Bundle extras = new Bundle();
-                    String json = Utils.inputStreamToString(
-                            getResources().openRawResource(R.raw.wizard_example));
-                    Movie movie = new Gson().fromJson(json, Movie.class);
-                    extras.putSerializable("movie", movie);
-                    intent.putExtras(extras);
-
-                    // Finally, start the wizard Activity.
-                    break;
-                }
-                case 10: {
-                    intent = new Intent(getActivity().getBaseContext(),
-                            SettingsExampleActivity.class);
-                    startActivity(intent);
-                    return;
-                }
-                case 11: {
-                    intent = new Intent(getActivity().getBaseContext(),
-                            DialogExampleActivity.class);
-                    break;
-                }
-                case 12: {
-                    intent = new Intent(getActivity().getBaseContext(),
-                            DynamicVideoRowsActivity.class);
-                    startActivity(intent);
-                    return;
-                }
-                case 13: {
-                    intent = new Intent(getActivity().getBaseContext(),
-                            LiveDataRowsActivity.class);
-                    startActivity(intent);
-                    return;
                 }
                 default:
                     break;
@@ -208,6 +163,24 @@ public class MainFragment extends BrowseSupportFragment {
         }
     }
 
+    public void exitConfirm(){
+        new StylishAlertDialog(getActivity(), StylishAlertDialog.WARNING)
+                .setTitleText("Are you sure?")
+                .setContentText("You want to exit?")
+                .setConfirmText("Yes")
+                .setConfirmClickListener(new StylishAlertDialog.OnStylishClickListener() {
+                    @Override
+                    public void onClick(StylishAlertDialog sDialog) {
+                        getActivity().finish();
+                    }
+                })
+                .setCancelButton("No", new StylishAlertDialog.OnStylishClickListener() {
+                    @Override
+                    public void onClick(StylishAlertDialog sDialog) {
+                        sDialog.dismissWithAnimation();
+                    }
+                }).show();
+    }
     private final class ItemViewSelectedListener implements OnItemViewSelectedListener {
 
         @Override

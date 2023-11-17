@@ -63,7 +63,6 @@ public class VideoConsumptionExampleWithExoPlayerFragment extends VideoFragment 
         Bundle extra_info = getArguments();
         String str_video_title = extra_info.getString("video_title");
         String str_video_url = extra_info.getString("video_path");
-        Log.e("str_video_title", str_video_url);
 
         ExoPlayerAdapter playerAdapter = new ExoPlayerAdapter(getActivity());
         playerAdapter.setAudioStreamType(AudioManager.USE_DEFAULT_STREAM_TYPE);

@@ -7,98 +7,56 @@
         "type": "DEFAULT",
         "title": "MOVIES",
         "localImageResource": "thumbnail_movies",
-        "description": "Showcase of various card design and layouts"
+        "description": ""
       },
       {
         "id": 1,
         "type": "DEFAULT",
         "title": "SERIES",
         "localImageResource": "thumbnail_series",
-        "description": "Showcase usage of page/rows fragment"
+        "description": ""
       },
       {
         "id": 2,
         "type": "DEFAULT",
         "title": "TV CHANNELS",
         "localImageResource": "thumbnail_tv",
-        "description": "Showcase of various images in a vertical grid"
+        "description": ""
       },
       {
         "id": 3,
         "type": "DEFAULT",
         "title": "RADIOS",
         "localImageResource": "thumbnail_radio",
-        "description": "Showcase of various videos in a vertical grid"
+        "description": ""
       },
       {
         "id": 4,
         "type": "DEFAULT",
         "title": "MY LIST",
         "localImageResource": "thumbnail_list",
-        "description": "Showcase of various card design and layouts"
+        "description": ""
       },
       {
         "id": 5,
         "type": "DEFAULT",
         "title": "DOCUMENTARIES",
         "localImageResource": "thumbnail_doc",
-        "description": "Showcase of various card design and layouts"
+        "description": ""
       },
       {
         "id": 6,
         "type": "DEFAULT",
         "title": "CONFIGUARATION",
         "localImageResource": "thumbnail_setting",
-        "description": "Showcase of various card design and layouts"
+        "description": ""
       },
       {
         "id": 7,
         "type": "DEFAULT",
-        "title": "Video consumption Examples with ExoPlayer",
-        "localImageResource": "thumbnail_example_video_consumption",
-        "description": "Video with ExoPlayer"
-      },
-      {
-        "id": 8,
-        "type": "DEFAULT",
-        "title": "Music consumption Examples",
-        "localImageResource": "thumbnail_example_music_consumption",
-        "description": "Showcase of various card design and layouts"
-      },
-      {
-        "id": 9,
-        "type": "DEFAULT",
-        "title": "Wizard Examples",
-        "localImageResource": "thumbnail_example_wizard",
-        "description": "Showcase of various card design and layouts"
-      },
-      {
-        "id": 10,
-        "type": "DEFAULT",
-        "title": "Settings Examples",
-        "localImageResource": "thumbnail_example_settings",
-        "description": "Showcase of various card design and layouts"
-      },
-      {
-        "id": 11,
-        "type": "DEFAULT",
-        "title": "Dialog Examples",
-        "localImageResource": "thumbnail_example_dialog",
-        "description": "Showcase of various card design and layouts"
-      },
-      {
-        "id": 12,
-        "type": "DEFAULT",
-        "title": "Row Example",
-        "localImageResource": "thumbnail_example_dialog",
-        "description": "Showcase of how to publish rows from your own app"
-      },
-      {
-        "id": 13,
-        "type": "DEFAULT",
-        "title": "LiveData Example",
-        "localImageResource": "thumbnail_example_dialog",
-        "description": "live data and room"
+        "title": "EXIT",
+        "localImageResource": "thumbnail_exit",
+        "description": ""
       }
     ]
   }

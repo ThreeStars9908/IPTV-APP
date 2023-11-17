@@ -94,9 +94,16 @@ public class CardExampleFragment extends BrowseFragment {
         setHeadersTransitionOnBackEnabled(true);
 
         // set fastLane (or headers) background color
-        setBrandColor(getResources().getColor(R.color.detail_view_background));
+        setBrandColor(getResources().getColor(R.color.detail_view_related_background));
         // set search icon color
-        setSearchAffordanceColor(getResources().getColor(R.color.search_opaque));
+        setSearchAffordanceColor(getResources().getColor(R.color.app_guidedstep_actions_background));
+        setOnSearchClickedListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getActivity(), getString(R.string.implement_search),
+                        Toast.LENGTH_LONG).show();
+            }
+        });
     }
     private static final class ItemViewSelectedListener implements OnItemViewSelectedListener {
         @Override
@@ -136,7 +143,7 @@ public class CardExampleFragment extends BrowseFragment {
     private void loadRows() {
         ArrayObjectAdapter mRowsAdapter = new ArrayObjectAdapter(new ListRowPresenter());
 
-        HttpAgent.get("http://192.168.2.26:5000/api/catagory/movies")
+        HttpAgent.get(HttpUrlHelper.getApiUrl(HttpUrlHelper.api_movies))
                 .goString(new StringCallback() {
                     @Override
                     protected void onDone(boolean success, String stringResults) {

@@ -21,6 +21,7 @@ import androidx.leanback.leanbackshowcase.R;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 
+import com.marsad.stylishdialogs.StylishAlertDialog;
 import com.studioidan.httpagent.HttpAgent;
 import com.studioidan.httpagent.JsonArrayCallback;
 
@@ -43,5 +44,28 @@ public class MainActivity extends FragmentActivity {
             getSupportFragmentManager().beginTransaction().replace(R.id.fragmentContainer, fragment)
                 .commit();
         }
+    }
+
+    @Override
+    public void onBackPressed() {
+        exitConfirm();
+    }
+    public void exitConfirm(){
+        new StylishAlertDialog(this, StylishAlertDialog.WARNING)
+                .setTitleText("Are you sure?")
+                .setContentText("You want to exit?")
+                .setConfirmText("Yes")
+                .setConfirmClickListener(new StylishAlertDialog.OnStylishClickListener() {
+                    @Override
+                    public void onClick(StylishAlertDialog sDialog) {
+                        finish();
+                    }
+                })
+                .setCancelButton("No", new StylishAlertDialog.OnStylishClickListener() {
+                    @Override
+                    public void onClick(StylishAlertDialog sDialog) {
+                        sDialog.dismissWithAnimation();
+                    }
+                }).show();
     }
 }

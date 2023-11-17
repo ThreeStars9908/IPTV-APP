@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/img_back"
+        android:scaleType="fitXY"/>
+    <LinearLayout
+        android:gravity="right"
+        android:orientation="vertical"
+        android:background="@drawable/shaper2"
+        android:layout_width="300.0dip"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true">
+        <ImageView
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="106.0dip"
+            android:scaleType="fitCenter"
+            android:src="@drawable/title_android_tv" />
+        <TextView
+            android:textSize="18.0dip"
+            android:textStyle="bold"
+            android:textColor="@color/lb_tv_white"
+            android:layout_width="fill_parent"
+            android:layout_height="20.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="30.0dip"
+            android:text="Usuario:" />
+        <EditText
+            android:id="@+id/username"
+            android:background="@drawable/shaper"
+            android:padding="5.0dip"
+            android:layout_width="fill_parent"
+            android:layout_height="60.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:text=""
+            android:hint="Escribe tu usuario"
+            android:textColor="@color/lb_tv_white"
+            android:textColorHint="@color/lb_grey"
+            android:ems="10"
+            android:inputType="textPersonName" />
+        <TextView
+            android:textSize="18.0dip"
+            android:textStyle="bold"
+            android:textColor="@color/lb_tv_white"
+            android:id="@+id/textView"
+            android:layout_width="fill_parent"
+            android:layout_height="20.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginTop="20.0dip"
+            android:text="Contraseña:" />
+        <EditText
+            android:id="@+id/pass"
+            android:padding="5.0dip"
+            android:layout_width="fill_parent"
+            android:layout_height="60.0dip"
+            android:layout_marginLeft="10.0dip"
+            android:layout_marginRight="10.0dip"
+            android:text=""
+            android:hint="Escribe tu contraseña"
+            android:textColor="@color/lb_tv_white"
+            android:textColorHint="@color/lb_grey"
+            android:ems="10"
+            android:inputType="textPassword" />
+        <Button
+            android:id="@+id/login_btn"
+            android:background="@drawable/selector2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25.0dip"
+            android:layout_marginTop="10.0dip"
+            android:layout_marginRight="25.0dip"
+            android:text="Acceder" />
+        <TextView
+            android:textStyle="bold"
+            android:textColor="@color/lb_tv_white"
+            android:id="@+id/orlbl"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5.0dip"
+            android:text="O" android:textAlignment="center" />
+        <Button
+            android:id="@+id/login_activatecode"
+            android:background="@drawable/selector5"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25.0dip"
+            android:layout_marginTop="3.0dip"
+            android:layout_marginRight="25.0dip"
+            android:text="Activar Codigo" />
+    </LinearLayout>
+</RelativeLayout>
